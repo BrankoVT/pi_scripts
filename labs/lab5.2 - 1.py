@@ -3,6 +3,7 @@ import wiringpi
 import sys
 
 def blink(_pin):
+    print("Led Blinks")
     wiringpi.digitalWrite(_pin, 1)
     time.sleep(0.5)
     wiringpi.digitalWrite(_pin, 0)
@@ -18,5 +19,6 @@ wiringpi.pinMode(pin, 1)
 
 #MAIN
 while True:
-    blink(pin)
+    if wiringpi.digitalRead(pin) == 0:
+        blink(pin)
 
