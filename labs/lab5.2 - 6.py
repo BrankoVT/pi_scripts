@@ -11,6 +11,7 @@ def blink(_pin):
 #SETUP
 print("Start blinking")
 switch = 5
+switch2 = 6
 wiringpi.wiringPiSetup()
 wiringpi.pinMode(0, 1)
 wiringpi.pinMode(1, 1)
@@ -22,15 +23,9 @@ wiringpi.pinMode(switch, 0)
 #MAIN
 while True:
     if wiringpi.digitalRead(switch) == 0:
-        print("Moving Left")
-        blink(3)
-        blink(2)
+        print("Relay 0")
         blink(1)
-        blink(0)
 
-    else:
-        print("Moving Right")
-        blink(0)
-        blink(1)
+    if wiringpi.digitalRead(switch2) == 0:
+        print("Relay 1")
         blink(2)
-        blink(3)
