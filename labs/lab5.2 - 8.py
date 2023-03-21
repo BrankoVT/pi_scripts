@@ -20,7 +20,7 @@ while True:
     #STEP 0
     print("Step 0")
     wiringpi.digitalWrite(blue, 1)
-    wiringpi.digitalWrite(pink, 0)
+    wiringpi.digitalWrite(pink, 1)
     wiringpi.digitalWrite(yellow, 0)
     wiringpi.digitalWrite(orange, 0)
     time.sleep(d)
@@ -29,7 +29,7 @@ while True:
     print("Step 1")
     wiringpi.digitalWrite(blue, 0)
     wiringpi.digitalWrite(pink, 1)
-    wiringpi.digitalWrite(yellow, 0)
+    wiringpi.digitalWrite(yellow, 1)
     wiringpi.digitalWrite(orange, 0)
     time.sleep(d)
 
@@ -38,12 +38,12 @@ while True:
     wiringpi.digitalWrite(blue, 0)
     wiringpi.digitalWrite(pink, 0)
     wiringpi.digitalWrite(yellow, 1)
-    wiringpi.digitalWrite(orange, 0)
+    wiringpi.digitalWrite(orange, 1)
     time.sleep(d)
 
     #STEP 3
     print("Step 3")
-    wiringpi.digitalWrite(blue, 0)
+    wiringpi.digitalWrite(blue, 1)
     wiringpi.digitalWrite(pink, 0)
     wiringpi.digitalWrite(yellow, 0)
     wiringpi.digitalWrite(orange, 1)
