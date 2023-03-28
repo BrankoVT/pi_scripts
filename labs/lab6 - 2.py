@@ -23,6 +23,11 @@ pin_CS_adc = 16                                 #We will use w16 as CE, not the 
 wiringpi.wiringPiSetup() 
 wiringpi.pinMode(pin_CS_adc, 1)                 # Set ce to mode 1 ( OUTPUT )
 wiringpi.wiringPiSPISetupMode(1, 0, 500000, 0)  #(channel, port, speed, mode)
+pin1 = 1
+pin2 = 2
+wiringpi.pinMode(pin1, 1)
+wiringpi.pinMode(pin2, 1)
+gap = 50
 
 #Main
 try:
@@ -33,8 +38,18 @@ try:
         ActivateADC()
         tmp1 = readadc(1) # read channel 1
         DeactivateADC()
-        print ("input0:", tmp0)
-        print ("input1:", tmp1)
+        difference = tmp1-tmp0
+        print("input0:", tmp0)
+        print("input1:", tmp1)
+        print ("difference:", difference)
+        if (difference > gap):
+            wiringpi.digitalWrite(pin1, 1)
+            wiringpi.digitalWrite(pin2, 0)
+            print("LED: 0")
+        if (difference < -gap):
+            wiringpi.digitalWrite(pin1, 0)
+            wiringpi.digitalWrite(pin2, 1)
+            print("LED: 1")
         time.sleep(0.2)
 
 except KeyboardInterrupt:
